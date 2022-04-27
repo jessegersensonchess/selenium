@@ -9,7 +9,7 @@
 
 #### Run
 ```
-FOLDER='/tmp/downloads'
+FOLDER='/tmp/download'
 mkdir "$FOLDER"
 chmod 777 "$FOLDER"
 docker run --network=host -v ${FOLDER}:/tmp/download -it --rm selenium:firefox
