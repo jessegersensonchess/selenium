@@ -14,3 +14,6 @@ mkdir "$FOLDER"
 chmod 777 "$FOLDER"
 docker run --network=host -v ${FOLDER}:/tmp/download -it --rm selenium:firefox
 ```
+
+#### Todo
+ optimize docker image for smaller size. Currently 1.44 GB!?
