@@ -9,11 +9,14 @@
 # chmod 777 $FOLDER
 # docker run --network=host -v ${FOLDER}:/tmp/download -it --rm selenium:firefox
 
-FROM selenium/standalone-firefox:latest
+FROM debian:bullseye-slim
 USER root
 #### only needed to run pip ####
-RUN apt-get update && \
-	apt-get install -y python3-pip
+RUN apt-get update \
+	&& apt-get install --no-install-recommends firefox-esr python3 pip -y \
+	&& groupadd seluser \
+	&& useradd --create-home --gid seluser seluser \
+	&& chown --recursive seluser:seluser /home/seluser/
 USER seluser
 
 WORKDIR /home/seluser
