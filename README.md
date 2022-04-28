@@ -4,7 +4,7 @@
 #### Build
  build and run assume this is run from linux; --network=host adds networking
  ```
- docker build --network=host -t selenium:firefox
+ docker build --network=host -t selenium:firefox .
  ```
 
 #### Run
