@@ -21,7 +21,7 @@ USER seluser
 
 WORKDIR /home/seluser
 COPY adisspr.mfcr.cz.py .
-RUN 	mkdir /tmp/download && \
-	pip install webdriver_manager && \
-	pip install selenium
+RUN 	mkdir /tmp/download \
+	&& pip install webdriver_manager \
+	&& pip install selenium
 CMD ["python3", "adisspr.mfcr.cz.py"]
