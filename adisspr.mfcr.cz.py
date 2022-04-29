@@ -1,12 +1,23 @@
 # selenium 4
 from selenium import webdriver
-import time
+import time, os
 from selenium.webdriver.firefox.service import Service
 from selenium.webdriver.support.select import Select
 from webdriver_manager.firefox import GeckoDriverManager
 
 URL = 'https://adisspr.mfcr.cz/dpr/DphReg?ZPRAC=FDPHI1&poc_dic=2&OK=Zobraz'
 DOWNLOAD_DIR = '/tmp/download'
+FILENAME = 'seznam.csv'
+
+try: 
+    filepath = os.path.join(DOWNLOAD_DIR, FILENAME)
+    if os.path.exists(filepath):
+        os.remove(filepath)
+        print("removed", filepath)
+
+except:
+    print("file did not exist")
+
 
 profile = webdriver.FirefoxProfile()
 profile.set_preference("browser.download.folderList", 2)
